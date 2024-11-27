@@ -1,0 +1,8 @@
+Profile
+1. dalam pembuatan aplikasi ada 3 tahap development(pengembangan), stagin(testing), production(produksi)
+2. kadang setiap tahap mempunyai port masing2 untuk mengakses aplikasi
+3. maka dari itu diperlukan beberapa profile yang dibuat dalam package resource lalu kita set server.portnya berbeda sesuai dengan kebutuhan
+4. sehingga programmer tidak perlu bingung saat menggunakan port untuk kebutuhaannya
+5. pada dasarnya profile yang di set oleh spring adalah default
+6. kita bisa mengatus pada edit config di bagian select run lalu pada program argument kita tuliskan  perintah --spring.profiles.active=namaprofile
+7. atau jika kita menjalankan menggunakan CLI bisa menggunakan perintah mvn spring-boot:run -Dspring-boot.run-profiles=namaprofile
