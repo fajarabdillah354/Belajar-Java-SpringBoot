@@ -1,0 +1,80 @@
+api:
+    secretApi: ${CLOUD_API}
+
+#    app adalah prefix yang diset pada annotation @ConfigurationProperty()
+app:
+    currency: IDR
+    saySomething: You are so awesome
+    timezone: Asia/Jakarta
+logging:
+    level:
+        web: DEBUG
+server:
+    port: 8090
+spring:
+    application:
+        name: belajar-java-springboot
+
+---
+#kita bisa membuat multiple YAML file dalam 1 file YAML dengan pemisah ---
+#untuk menambahkan default profile spring.profiles.activate=namaprofile
+#jika dalam penulisan di .properties ini sama saja dengan spring.config.activate.on-profile= (ini untuk menambahkan config profile baru)
+#untuk membuat profile default kita spring.profiles.active
+#jika kita ingin memasukan valuenya harus di kasih spasi(ex= on-profile: development atau port: 8080)
+
+api:
+    secretApi: ${CLOUD_API}
+
+
+
+spring:
+    config:
+        activate:
+            on-profile: development
+    datasource:
+        url: jdbc:mysql://localhost:3306/spring_jpa
+        username: fajar_code
+        password: fahmifadilah25
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        properties:
+            hibernate:
+                format-sql: true
+    mvc:
+        contentnegotiation:
+            media-types:
+                json: application/json
+
+server:
+    port: 8080
+
+logging:
+    level:
+        web: DEBUG
+---
+
+spring:
+    config:
+        activate:
+            on-profile: test
+server:
+    port: 8081
+
+logging:
+    level:
+        web: DEBUG
+
+---
+spring:
+    config:
+        activate:
+            on-profile: production
+server:
+    port: 8082
+
+logging:
+    level:
+        web: DEBUG
+
